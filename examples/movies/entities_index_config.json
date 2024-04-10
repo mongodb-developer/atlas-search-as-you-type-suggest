@@ -1,0 +1,127 @@
+{
+  "mappings": {
+    "dynamic": true,
+    "fields": {
+      "name": [
+        {
+          "multi": {
+            "edge": {
+              "analyzer": "custom.edge",
+              "searchAnalyzer": "lucene.simple",
+              "type": "string"
+            },
+            "english": {
+              "analyzer": "lucene.english",
+              "searchAnalyzer": "lucene.english",
+              "type": "string"
+            },
+            "exact": {
+              "analyzer": "custom.keyword_exact",
+              "searchAnalyzer": "custom.keyword_exact",
+              "type": "string"
+            },
+            "lowercased": {
+              "analyzer": "custom.keyword_lower",
+              "searchAnalyzer": "custom.keyword_lower",
+              "type": "string"
+            },
+            "phonetic": {
+              "analyzer": "custom.phonetic",
+              "searchAnalyzer": "custom.phonetic",
+              "type": "string"
+            },
+            "shingled": {
+              "analyzer": "custom.shingled",
+              "searchAnalyzer": "custom.shingled",
+              "type": "string"
+            }
+          },
+          "type": "string"
+        },
+        {
+          "type": "autocomplete"
+        },
+        {
+          "type": "token"
+        }
+      ],
+      "type": [
+        {
+          "type": "token"
+        },
+        {
+          "type": "stringFacet"
+        }
+      ]
+    }
+  },
+  "analyzers": [
+    {
+      "charFilters": [],
+      "name": "custom.edge",
+      "tokenFilters": [
+        {
+          "maxGram": 10,
+          "minGram": 1,
+          "termNotInBounds": "include",
+          "type": "edgeGram"
+        },
+        {
+          "type": "lowercase"
+        }
+      ],
+      "tokenizer": {
+        "type": "standard"
+      }
+    },
+    {
+      "charFilters": [],
+      "name": "custom.keyword_lower",
+      "tokenFilters": [
+        {
+          "type": "lowercase"
+        }
+      ],
+      "tokenizer": {
+        "type": "keyword"
+      }
+    },
+    {
+      "charFilters": [],
+      "name": "custom.keyword_exact",
+      "tokenFilters": [],
+      "tokenizer": {
+        "type": "keyword"
+      }
+    },
+    {
+      "charFilters": [],
+      "name": "custom.shingled",
+      "tokenFilters": [
+        {
+          "type": "lowercase"
+        },
+        {
+          "maxShingleSize": 2,
+          "minShingleSize": 2,
+          "type": "shingle"
+        }
+      ],
+      "tokenizer": {
+        "type": "standard"
+      }
+    },
+    {
+      "charFilters": [],
+      "name": "custom.phonetic",
+      "tokenFilters": [
+        {
+          "type": "daitchMokotoffSoundex"
+        }
+      ],
+      "tokenizer": {
+        "type": "standard"
+      }
+    }
+  ]
+}
