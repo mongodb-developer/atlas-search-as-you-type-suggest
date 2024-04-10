@@ -36,7 +36,7 @@ The `entities` collection can be faceted by `type` (provided the field was confi
 
 ### Movies
 
-It's easy to get started with this as-you-type suggestion solution using the sample movies data available within Atlas.  First, [load the sample data](https://www.mongodb.com/docs/atlas/sample-data/sample-mflix/) into your cluster, then following these steps:
+It's easy to get started with this as-you-type suggestion solution using the sample movies data available within Atlas.  First, [load the sample data](https://www.mongodb.com/docs/atlas/sample-data/sample-mflix/) into your cluster and have [`mongosh` installed](https://www.mongodb.com/docs/mongodb-shell/), then following these steps:
 
  1. `cd examples/movies`
  2. Run `mongosh "<connection string>" setup.js`
