@@ -11,7 +11,7 @@ db = db.getSiblingDB(DB);
 // Drop and create a fresh entities collection
 db.getCollection(ENTITIES_COLLECTION).drop();
 db.createCollection(ENTITIES_COLLECTION);
-console.log(`Created ${ENTITIES_COLLECTION}`);
+console.log(`Created ${ENTITIES_COLLECTION} collection`);
 
 entities = db.getCollection(ENTITIES_COLLECTION);
 
@@ -119,3 +119,4 @@ movies.aggregate([
 );
 console.log(" * Titles imported");
 
+console.log("DONE");

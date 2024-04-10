@@ -40,7 +40,9 @@ It's easy to get started with this as-you-type suggestion solution using the sam
 
  1. `cd examples/movies`
  2. Run `mongosh "<connection string>" setup.js`
- 3. Then run `mongosh "<connection string>" suggest.js`
+ 3. Wait until the index has been built and is available. This may take a few minutes, depending on 
+    your cluster tier. You can check on the status through the Atlas web UI or with Compass.
+ 4. Then run `mongosh "<connection string>" suggest.js`
 
  `suggest.js` emulates a user typing the query that is coded at the top of the file, one query for each character of the string. Adjust this string to try other examples. The output will be a series of results like this, ending with the time each query took to execute:
 
